@@ -1,5 +1,6 @@
 import express from "express";
 import Task from "../models/Task.js";
+import { validateTask } from "../middlewares/validateTask.js";
 
 const taskRouter = express.Router();
 
@@ -12,7 +13,7 @@ taskRouter.get("/tasks", async (req, res) => {
   }
 });
 
-taskRouter.post("/tasks", async (req, res) => {
+taskRouter.post("/tasks", validateTask, async (req, res) => {
   try {
     const tasks = req.body;
 

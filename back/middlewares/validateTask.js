@@ -1,4 +1,5 @@
 import Joi from "joi";
+import logger from "../utils/logger.js";
 
 const taskSchema = Joi.object({
   title: Joi.string().required().messages({
@@ -31,6 +32,7 @@ export const validateTask = (req, res, next) => {
   const { error } = taskSchema.validate(req.body, { abortEarly: false });
   if (error) {
     const detailedErrors = error.details.map(err => err.message);
+    logger.warn(`Validation échouée pour les données de tâche : ${detailedErrors.join(", ")}`);
     return res.status(400).send({ errors: detailedErrors });
   }
   next();

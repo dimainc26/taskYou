@@ -6,6 +6,8 @@ import rateLimit from "express-rate-limit";
 import mongoSanitize from "express-mongo-sanitize";
 import morgan from "morgan";
 
+import logger from './utils/logger.js';
+import { globalErrorHandler } from './middlewares/errorHandler.js'; // Importez correctement
 import userRouter from "./routes/users.js";
 import taskRouter from "./routes/tasks.js";
 
@@ -13,9 +15,10 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limite chaque IP à 100 requêtes par fenêtre de 15 minutes
+  windowMs: 15 * 60 * 1000,
+  max: 100, 
   message: "Trop de requêtes, veuillez réessayer plus tard."
 });
 
@@ -25,18 +28,18 @@ app.use(helmet());
 app.use(express.json());
 app.use(mongoSanitize());
 
-app.get("/api/v1", (req, res) => {
-  res.json({ msg: "Welcome Billionaire" });
-});
-
+// Routes
 app.use("/api/v1", taskRouter);
 app.use("/api/v1", userRouter);
 
+// Gestion des erreurs globales
+app.use(globalErrorHandler); // Assurez-vous que ceci est placé après toutes les routes
+
 mongoose
   .connect(process.env.MONGODB_URI)
-  .then(() => console.log("Connected to MongoDB"))
-  .catch((error) => console.error("Error connecting to MongoDB:", error));
+  .then(() => logger.info("Connected to MongoDB"))
+  .catch((error) => logger.error("Error connecting to MongoDB:", error));
 
 app.listen(PORT, () => {
-  console.log("Server running at : localhost:" + PORT);
+  logger.info(`Server running at: http://localhost:${PORT}`);
 });

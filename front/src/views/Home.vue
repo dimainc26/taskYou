@@ -1,20 +1,19 @@
 <template>
-  <div>Home</div>
-  <p>{{ apiUrl }}</p>
+  <AllTasks />
 </template>
 
 <script>
+import AllTasks from "../components/AllTasks.vue";
+
 export default {
-  name: 'Home',
+  name: "Home",
+  components: { AllTasks },
   data() {
     return {
-      // Accéder aux variables d'environnement
-      apiUrl: import.meta.env.VITE_API_BASE_URL
+      apiUrl: import.meta.env.VITE_API_BASE_URL,
     };
   },
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

@@ -1,7 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 import Task from "../models/Task.js";
-import { validateUpdateTask, validateTask } from "../middlewares/validateTask.js";
+import {  validateTask } from "../middlewares/validateTask.js";
+import { validateUpdateTask } from "../middlewares/updateValidateTask.js";
 import AppError from "../errors/AppError.js";
 import logger from "../utils/logger.js";
 
@@ -43,21 +44,21 @@ taskRouter.post("/tasks", validateTask, async (req, res, next) => {
   try {
     const tasks = req.body;
 
-    if (Array.isArray(tasks)) {
-      const insertedTasks = await Task.insertMany(tasks);
-      logger.info(`${insertedTasks.length} tâches insérées`);
-      res.status(201).send(insertedTasks);
-    } else {
-      const task = new Task(tasks);
-      await task.save();
-      logger.info(`Nouvelle tâche créée : ${task.title}`);
-      res.status(201).send(task);
+    // Vérifiez que le corps de la requête est un tableau
+    if (!Array.isArray(tasks)) {
+      return next(new AppError("Le corps de la requête doit être un tableau d'objets de tâches", 400));
     }
+
+    // Insérer les tâches en une seule opération
+    const insertedTasks = await Task.insertMany(tasks);
+    logger.info(`${insertedTasks.length} tâches insérées`);
+    res.status(201).send(insertedTasks);
   } catch (error) {
     logger.error(`Erreur lors de la création des tâches : ${error.message}`);
     next(new AppError("Erreur lors de la création des tâches", 400));
   }
 });
+
 
 
 taskRouter.put("/tasks", validateUpdateTask, async (req, res, next) => {

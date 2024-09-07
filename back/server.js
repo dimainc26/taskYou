@@ -5,6 +5,7 @@ import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import mongoSanitize from "express-mongo-sanitize";
 import morgan from "morgan";
+import cors from "cors";
 
 import logger from "./utils/logger.js";
 import { globalErrorHandler } from "./middlewares/errorHandler.js";
@@ -21,6 +22,10 @@ const limiter = rateLimit({
   max: 100,
   message: "Trop de requêtes, veuillez réessayer plus tard.",
 });
+
+app.use(cors({
+  origin: 'http://localhost:5173', // Autoriser uniquement les requêtes provenant de ce domaine
+}));
 
 app.use(limiter);
 app.use(morgan("combined"));

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// @ts-ignore
 import Home from './views/Home.vue'
 </script>
 

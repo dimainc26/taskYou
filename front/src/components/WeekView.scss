@@ -21,7 +21,7 @@
   --border-radius-small: 8px;
   --border-radius-large: 12px;
 
-  --time-cell-height: 50px;
+  --time-cell-height: 80px;
 
   --event-padding: 12px;
   --event-title-size: 16px;
@@ -41,107 +41,116 @@
       }
 
       .vuecal__title-bar {
-
         .vuecal__arrow {
         }
         .vuecal__arrow--prev {
-          color: red !important;
         }
 
-        .vuecal__title{
-          background-color: yellow;
-
+        .vuecal__title {
         }
       }
 
       .vuecal__weekdays-headings {
 
-        .vuecal__heading  {
-
+        .vuecal__heading {
+          height: 80px;
+        
           .vuecal__flex {
-
+        
             .weekday-label {
 
-              span {
-
-                &.full {
-                  color: dodgerblue;
+              div {
+                display: flex;
+                align-items: center; 
+        
+                .day {
+                  font-weight: bold;
+                  font-size: 28px;
+                  margin: 0;
+                  padding: 0;
+                  padding-right: 10px;
+                }
+        
+                .week-time {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 0;
+                  align-items: start;
+        
+                  .week-day-name {
+                    margin: 0;
+                    padding: 0;
+                    font-size: 14px;
+                    font-weight: var(--font-weight-regular);
+                    color: var(--color-light-blue);
+                  }
+        
+                  .day-time {
+                    font-size: 12px;
+                    color: var(--color-gray-lines);
+                    margin: 0;
+                    padding: 0;
+                  }
                 }
               }
-
-
             }
           }
         }
+        
+
       }
     }
 
     .vuecal__body {
-
       .vuecal__flex {
-
         .vuecal__bg {
-
           .vuecal__flex {
-
             .vuecal__time-column {
-              
-              .vuecal__time-cell{
-                
-                .vuecal__time-cell-line {
+              width: max-content;
+              .vuecal__time-cell {
 
-                }
-                
-                .vuecal__time-cell-label {
-                  
-                  background-color: dodgerblue;
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
+                .time-value{
+                  color: var(--color-gray-lines);
+                  margin: 0;
+                  padding: 0;
                 }
               }
             }
 
             .vuecal__cells {
+              .vuecal__flex {
+                .vuecal__cell {
+                  // .vuecal__cell-content {
+                  // }
 
-              .vuecal__flex{
+                  // &.vuecal__cell--has-events {
 
-                .vuecal__cell{
+                  //   .vuecal__cell-content {
+                  //     .vuecal__cell-events {
+                  //       .vuecal__event {
+                  //         background-color: var(--color-light-green);
+                  //         padding: 8px;
+                  //         border-radius: 12px;
 
-                  .vuecal__cell-content{
-
-                  }
-
-                  &.vuecal__cell--has-events{
-                    background-color: rgb(104, 81, 81);
-
-                    .vuecal__cell-content{
-
-                      .vuecal__cell-events {
-
-                        .vuecal__event {
-
-                          background-color: var(--color-light-green);
-
-                          .vuecal__event-title{
-
-                          }
-                        }
-                      }
-                    }
-                  }
-
-
+                  //         .vuecal__event-title {
+                  //           font-weight: bold;
+                  //           font-size: 1.2rem;
+                  //           text-align: start;
+                  //         }
+                  //       }
+                  //     }
+                  //   }
+                  // }
                 }
-
-
               }
             }
-
-            
           }
         }
       }
     }
-
-
   }
 }

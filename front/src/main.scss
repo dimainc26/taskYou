@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "bootstrap/scss/bootstrap";
+@import url('imports.scss');
+
+:root {
+    font-family: "Urbanist", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+    --color-white: #FFFFFF;
+    --color-mint: #A7D5B8;
+    --color-up-line: #A6DB45;
+    --color-up-green: #4EA42F;
+    --color-sky: #5BCABE;
+    --color-blue: #2959BC;
+    --color-forest: #27534E;
+    --color-black: #09090B;
+}

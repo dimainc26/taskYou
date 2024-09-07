@@ -1,0 +1,147 @@
+:root {
+  --font-family: "Urbanist", sans-serif;
+  --font-size: 14px;
+  --font-weight-bold: 600;
+  --font-weight-regular: 400;
+
+  --color-white: #ffffff;
+  --color-light-green: #9dd762;
+  --color-mint-green: #79efb1;
+  --color-light-blue: #6bd1e9;
+  --color-dark-blue: #213549;
+  --color-dark-background: #101215;
+  --color-green-highlight: #1dcc8b;
+  --color-gray-lines: #39414c;
+  --color-hover-bg: #292e33;
+
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+
+  --border-radius-small: 8px;
+  --border-radius-large: 12px;
+
+  --time-cell-height: 50px;
+
+  --event-padding: 12px;
+  --event-title-size: 16px;
+  --event-subtitle-size: 14px;
+  --event-time-size: 12px;
+
+  --shadow-soft: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.weekly-view__container {
+  // background-color: green;
+
+  .vuecal--week-view {
+    .vuecal__header {
+      .vuecal__menu {
+        // Settimana
+      }
+
+      .vuecal__title-bar {
+
+        .vuecal__arrow {
+        }
+        .vuecal__arrow--prev {
+          color: red !important;
+        }
+
+        .vuecal__title{
+          background-color: yellow;
+
+        }
+      }
+
+      .vuecal__weekdays-headings {
+
+        .vuecal__heading  {
+
+          .vuecal__flex {
+
+            .weekday-label {
+
+              span {
+
+                &.full {
+                  color: dodgerblue;
+                }
+              }
+
+
+            }
+          }
+        }
+      }
+    }
+
+    .vuecal__body {
+
+      .vuecal__flex {
+
+        .vuecal__bg {
+
+          .vuecal__flex {
+
+            .vuecal__time-column {
+              
+              .vuecal__time-cell{
+                
+                .vuecal__time-cell-line {
+
+                }
+                
+                .vuecal__time-cell-label {
+                  
+                  background-color: dodgerblue;
+
+                }
+              }
+            }
+
+            .vuecal__cells {
+
+              .vuecal__flex{
+
+                .vuecal__cell{
+
+                  .vuecal__cell-content{
+
+                  }
+
+                  &.vuecal__cell--has-events{
+                    background-color: rgb(104, 81, 81);
+
+                    .vuecal__cell-content{
+
+                      .vuecal__cell-events {
+
+                        .vuecal__event {
+
+                          background-color: var(--color-light-green);
+
+                          .vuecal__event-title{
+
+                          }
+                        }
+                      }
+                    }
+                  }
+
+
+                }
+
+
+              }
+            }
+
+            
+          }
+        }
+      }
+    }
+
+
+  }
+}

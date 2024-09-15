@@ -1,0 +1,95 @@
+:root {
+  --font-family: "Urbanist", sans-serif;
+  --font-size: 14px;
+  --font-weight-bold: 600;
+  --font-weight-regular: 400;
+
+  --color-white: #ffffff;
+  --color-light-green: #a7db45;
+
+  --color-mint-green: #79efb1;
+  --color-light-blue: #5bcabe;
+  --color-dark-blue: #213549;
+  --color-dark-background: #101215;
+  --color-green-highlight: #1dcc8b;
+  --color-gray-lines: #39414c;
+  --color-hover-bg: #292e33;
+
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+
+  --border-radius-small: 8px;
+  --border-radius-large: 12px;
+
+  --time-cell-height: 80px;
+
+  --event-padding: 12px;
+  --event-title-size: 16px;
+  --event-subtitle-size: 14px;
+  --event-time-size: 12px;
+
+  --shadow-soft: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+// priority
+.high-priority{
+  background-color: var(--color-light-blue);
+}
+.medium-priority{
+  background-color: var(--color-light-green);
+}
+
+.low-priority{
+  background-color: var(--color-mint-green);
+}
+
+.weekly-view__container {
+  // background-color: green;
+
+  .vuecal--week-view {
+    .vuecal__header {
+      .vuecal__menu {
+        // Settimana
+      }
+
+      .vuecal__title-bar {
+        .vuecal__arrow {
+        }
+        .vuecal__arrow--prev {
+        }
+
+        .vuecal__title {
+        }
+      }
+
+      .vuecal__weekdays-headings {
+      }
+    }
+
+    .vuecal__body {
+      .vuecal__flex {
+        .vuecal__bg {
+          .vuecal__flex {
+            .vuecal__time-column {
+            
+            }
+
+            .vuecal__cells {
+              .vuecal__flex {
+                .vuecal__cell {
+                  &.vuecal__cell--has-events {
+                    .vuecal__cell-content {
+                      .vuecal__cell-events {
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

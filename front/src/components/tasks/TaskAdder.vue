@@ -10,7 +10,7 @@
   </template>
   
   <script>
-  import TaskModal from '../components/TaskModal.vue';
+  import TaskModal from '../components/common/TaskModal.vue';
   
   export default {
     name: 'TaskAdder',
